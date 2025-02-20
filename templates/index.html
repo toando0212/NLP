@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0ffe0;
+            border: 1px solid #00aa00;
+            border-radius: 4px;
+        }
+        .top-predictions {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dự đoán chủ đề bài viết</h1>
+        <form method="post">
+            <textarea name="text" rows="8" placeholder="Nhập văn bản vào đây...">{{ text }}</textarea><br>
+            <button type="submit">Dự đoán chủ đề</button>
+        </form>
+        {% if prediction_main %}
+        <div class="result">
+            <h2>Chủ đề dự đoán chính: {{ prediction_main }}</h2>
+            <div class="top-predictions">
+                <h3>Các chủ đề liên quan (Top 3):</h3>
+                <ul>
+                    {% for item in prediction_top %}
+                    <li>
+                        Nhãn gốc: <strong>{{ item.orig }}</strong>
+                        → Đổi thành: <strong>{{ item.remapped }}</strong>
+                        (Xác suất: {{ (item.prob * 100)|round(2) }}%)
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
