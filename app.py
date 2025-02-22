@@ -22,26 +22,33 @@ label_remap = {
     "comp.sys.ibm.pc.hardware": "Máy tính",
     "comp.sys.mac.hardware": "Máy tính",
     "comp.windows.x": "Máy tính",
+
     # Tôn giáo
     "alt.atheism": "Tôn giáo",
     "soc.religion.christian": "Tôn giáo",
     "talk.religion.misc": "Tôn giáo",
+
     # Chính trị
     "talk.politics.guns": "Chính trị",
     "talk.politics.mideast": "Chính trị",
     "talk.politics.misc": "Chính trị",
-    # Thể thao
-    "rec.autos": "Thể thao",
-    "rec.motorcycles": "Thể thao",
+
+    # Xe cộ
+    "rec.autos": "Xe cộ",
+    "rec.motorcycles": "Xe cộ",
+
+    #Thể thao
     "rec.sport.baseball": "Thể thao",
     "rec.sport.hockey": "Thể thao",
+
     # Khoa học
     "sci.crypt": "Khoa học",
     "sci.electronics": "Khoa học",
     "sci.med": "Khoa học",
     "sci.space": "Khoa học",
+
     # Khác
-    "misc.forsale": "Khác"
+    "misc.forsale": "Mua bán"
 }
 
 

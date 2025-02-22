@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Dự đoán chủ đề bài viết</title>
-
-{#  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">#}
-
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<style>
-    /* Reset cơ bản */
+/* Reset cơ bản */
 * {
   margin: 0;
   padding: 0;
@@ -142,32 +131,3 @@ button:active {
 .top-predictions li:hover {
   background-color: #f9f9f9;
 }
-
-</style>
-<body>
-  <div class="container">
-    <h1>Dự đoán chủ đề bài viết</h1>
-    <form method="post">
-      <textarea name="text" placeholder="Nhập văn bản vào đây...">{{ text }}</textarea>
-      <button type="submit">Dự đoán chủ đề</button>
-    </form>
-    {% if prediction_main %}
-      <div class="result">
-        <h2>Chủ đề dự đoán chính: {{ prediction_main }}</h2>
-        <div class="top-predictions">
-          <h3>Các chủ đề liên quan (Top 3):</h3>
-          <ul>
-            {% for item in prediction_top %}
-              <li>
-                Nhãn gốc: <strong>{{ item.orig }}</strong> →
-                Đổi thành: <strong>{{ item.remapped }}</strong>
-                (Xác suất: {{ (item.prob * 100)|round(2) }}%)
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    {% endif %}
-  </div>
-</body>
-</html>
