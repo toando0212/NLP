@@ -1,0 +1,23 @@
+// Topic Prediction System
+digraph {
+	A [label="User Input
+(Frontend UI)"]
+	B [label="Flask Backend
+(API Server)"]
+	C [label="Text Preprocessing
+(clean_text, TF-IDF)"]
+	D [label="Logistic Regression
+(Trained Model)"]
+	E [label="User-Friendly Labels
+Mapping"]
+	F [label="Prediction Output
++ Related Topics"]
+	G [label="Final Display
+(UI)"]
+	A -> B [label="Submit Text"]
+	B -> C [label="Process Request"]
+	C -> D [label="Transform Text"]
+	D -> E [label="Predict Topic"]
+	E -> F [label="Map Labels"]
+	F -> G [label="Display Result"]
+}

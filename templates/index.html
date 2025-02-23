@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Dự đoán chủ đề bài viết</title>
+  <title>Topic Prediction for Text Documents</title>
 
 {#  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">#}
 
@@ -146,22 +146,22 @@ button:active {
 </style>
 <body>
   <div class="container">
-    <h1>Dự đoán chủ đề bài viết</h1>
+    <h1>Predict article topics</h1>
     <form method="post">
-      <textarea name="text" placeholder="Nhập văn bản vào đây...">{{ text }}</textarea>
-      <button type="submit">Dự đoán chủ đề</button>
+      <textarea name="text" placeholder="Enter text here (English only)...">{{ text }}</textarea>
+      <button type="submit">Predict Topic</button>
     </form>
     {% if prediction_main %}
       <div class="result">
-        <h2>Chủ đề dự đoán chính: {{ prediction_main }}</h2>
+        <h2>Main prediction topic: {{ prediction_main }}</h2>
         <div class="top-predictions">
-          <h3>Các chủ đề liên quan (Top 3):</h3>
+          <h3>Related topics (Top 3):</h3>
           <ul>
             {% for item in prediction_top %}
               <li>
-                Nhãn gốc: <strong>{{ item.orig }}</strong> →
-                Đổi thành: <strong>{{ item.remapped }}</strong>
-                (Xác suất: {{ (item.prob * 100)|round(2) }}%)
+                Original label: <strong>{{ item.orig }}</strong> →
+                To: <strong>{{ item.remapped }}</strong>
+                (Probability: {{ (item.prob * 100)|round(2) }}%)
               </li>
             {% endfor %}
           </ul>

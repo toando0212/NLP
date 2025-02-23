@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template
 import joblib
 import numpy as np
+
+
 from preprocess import clean_text  # Hàm clean_text có trong preprocess.py
 from sklearn.datasets import fetch_20newsgroups
 
@@ -16,40 +18,28 @@ target_names = newsgroups.target_names
 
 # Tạo từ điển remapping: ánh xạ nhãn gốc thành các nhóm chủ đề lớn hơn, thân thiện hơn.
 label_remap = {
-    # Máy tính
-    "comp.graphics": "Máy tính",
-    "comp.os.ms-windows.misc": "Máy tính",
-    "comp.sys.ibm.pc.hardware": "Máy tính",
-    "comp.sys.mac.hardware": "Máy tính",
-    "comp.windows.x": "Máy tính",
-
-    # Tôn giáo
-    "alt.atheism": "Tôn giáo",
-    "soc.religion.christian": "Tôn giáo",
-    "talk.religion.misc": "Tôn giáo",
-
-    # Chính trị
-    "talk.politics.guns": "Chính trị",
-    "talk.politics.mideast": "Chính trị",
-    "talk.politics.misc": "Chính trị",
-
-    # Xe cộ
-    "rec.autos": "Xe cộ",
-    "rec.motorcycles": "Xe cộ",
-
-    #Thể thao
-    "rec.sport.baseball": "Thể thao",
-    "rec.sport.hockey": "Thể thao",
-
-    # Khoa học
-    "sci.crypt": "Khoa học",
-    "sci.electronics": "Khoa học",
-    "sci.med": "Khoa học",
-    "sci.space": "Khoa học",
-
-    # Khác
-    "misc.forsale": "Mua bán"
+    "alt.atheism": "Religion (Atheism)",
+    "comp.graphics": "Computers (Graphics)",
+    "comp.os.ms-windows.misc": "Computers (Windows)",
+    "comp.sys.ibm.pc.hardware": "Computers (IBM PC)",
+    "comp.sys.mac.hardware": "Computers (Mac)",
+    "comp.windows.x": "Computers (Windows X)",
+    "misc.forsale": "Classifieds",
+    "rec.autos": "Automobiles",
+    "rec.motorcycles": "Motorcycles",
+    "rec.sport.baseball": "Baseball",
+    "rec.sport.hockey": "Hockey",
+    "sci.crypt": "Cryptography",
+    "sci.electronics": "Electronics",
+    "sci.med": "Medicine",
+    "sci.space": "Space",
+    "soc.religion.christian": "Christianity",
+    "talk.politics.guns": "Politics (Guns)",
+    "talk.politics.mideast": "Politics (Middle East)",
+    "talk.politics.misc": "Politics",
+    "talk.religion.misc": "Religion (Miscellaneous)"
 }
+
 
 
 # Vì một số nhãn có thể không nằm trong từ điển remap, ta sẽ giữ nguyên nếu không remap được.
